@@ -7,6 +7,7 @@ function GameOver() {
     setCurrentLetterPosition,
     setTimer,
     score,
+    selectPage,
   } = useData()
 
   function handlePlayAgain() {
@@ -14,6 +15,7 @@ function GameOver() {
     setCurrentLetter("")
     setCurrentLetterPosition(0)
     setTimer(null)
+    selectPage("")
   }
 
   return (

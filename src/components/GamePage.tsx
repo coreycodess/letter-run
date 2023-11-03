@@ -40,7 +40,7 @@ function GamePage() {
     }, 2000)
   }, [])
 
-  function onKeyPress(button: any) {
+  function onKeyPress(button: string) {
     if (button.toLowerCase() === letters[currentLetterPosition].toLowerCase()) {
       setCurrentLetterPosition(currentLetterPosition + 1)
       setCurrentLetter(letters[currentLetterPosition + 1])
@@ -50,7 +50,7 @@ function GamePage() {
     if (button.toLowerCase() !== letters[currentLetterPosition].toLowerCase())
       handleGameOver()
 
-    if (letters.length === currentLetterPosition + 1) {
+    if (letters.length === 10) {
       handleGameOver()
     }
   }

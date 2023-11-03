@@ -42,9 +42,9 @@ function GamePage() {
 
   function onKeyPress(button: string) {
     if (button.toLowerCase() === letters[currentLetterPosition].toLowerCase()) {
+      if (score <= 10) setScore()
       setCurrentLetterPosition(currentLetterPosition + 1)
       setCurrentLetter(letters[currentLetterPosition + 1])
-      setScore()
     }
 
     if (button.toLowerCase() !== letters[currentLetterPosition].toLowerCase())
@@ -72,9 +72,9 @@ function GamePage() {
     const key = e.key
 
     if (key.toLowerCase() === letters[currentLetterPosition].toLowerCase()) {
+      if (score <= 10) setScore()
       setCurrentLetterPosition(currentLetterPosition + 1)
       setCurrentLetter(letters[currentLetterPosition + 1])
-      setScore()
     }
 
     if (key.toLowerCase() !== letters[currentLetterPosition].toLowerCase())

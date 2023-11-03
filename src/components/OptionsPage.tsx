@@ -15,19 +15,19 @@ function OptionsPage() {
         <h1 className="text-5xl">Select Time</h1>
         <div className="my-10 text-white">
           <button
-            className="mx-5 p-3 bg-purple-900 rounded-sm text-sm"
+            className="mx-5 p-3 w-24 bg-purple-900 rounded-sm text-sm"
             onClick={() => handleOption(15)}
           >
             15 seconds
           </button>
           <button
-            className="mx-5 p-3 bg-purple-900 rounded-sm text-sm"
+            className="mx-5 p-3 w-24 bg-purple-900 rounded-sm text-sm"
             onClick={() => handleOption(10)}
           >
             10 seconds
           </button>
           <button
-            className="mx-5 p-3 bg-purple-900 rounded-sm text-sm"
+            className="mx-5 p-3 w-24 bg-purple-900 rounded-sm text-sm"
             onClick={() => handleOption(5)}
           >
             5 seconds

@@ -8,7 +8,7 @@ function WelcomePage() {
       <div className="text-center w-1/2">
         <h1 className="text-5xl">Letter Run</h1>
         <button
-          className="mt-10 p-0.5 w-1/5 h-7 bg-purple-900 rounded-sm text-white text-sm"
+          className="mt-10 p-0.5 w-24 bg-purple-900 rounded-sm text-white text-sm"
           onClick={() => {
             selectPage("OptionsPage")
           }}

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import Keyboard, { KeyboardReactInterface } from "react-simple-keyboard"
+import "react-simple-keyboard/build/css/index.css"
 import useData from "../zustand/useData.store"
 import generateLetters from "../utils/generateLetters"
 import timer from "../utils/timer"
@@ -16,6 +18,21 @@ function WaitComponent() {
 
 function GamePage() {
   const [wait, setWait] = useState("wait")
+
+  function onKeyPress(button: any) {
+    if (button.toLowerCase() === letters[currentLetterPosition].toLowerCase()) {
+      setCurrentLetterPosition(currentLetterPosition + 1)
+      setCurrentLetter(letters[currentLetterPosition + 1])
+      setScore()
+    }
+
+    if (button.toLowerCase() !== letters[currentLetterPosition].toLowerCase())
+      handleGameOver()
+
+    if (letters.length === currentLetterPosition + 1) {
+      handleGameOver()
+    }
+  }
 
   const {
     time,
@@ -83,8 +100,8 @@ function GamePage() {
   return (
     <>
       {wait === "done" ? (
-        <div className="select-none flex justify-center items-center flex-col w-100 h-screen rounded-sm text-white">
-          <div className="w-4/5 bg-purple-900">
+        <div className="select-none flex justify-center items-center flex-col w-100 h-screen rounded-sm">
+          <div className="w-4/5 bg-purple-900 text-white">
             {/* Header */}
             <div className="flex p-3 items-center justify-end">
               <p>Time: {time}</p>
@@ -94,6 +111,11 @@ function GamePage() {
             <div className="my-10 text-center text-3xl">
               <h1>{currentLetter}</h1>
             </div>
+          </div>
+
+          {/* Keyboard */}
+          <div className="w-4/5 text-black">
+            <Keyboard onKeyPress={onKeyPress} />
           </div>
         </div>
       ) : (

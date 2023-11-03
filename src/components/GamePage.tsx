@@ -19,21 +19,6 @@ function WaitComponent() {
 function GamePage() {
   const [wait, setWait] = useState("wait")
 
-  function onKeyPress(button: any) {
-    if (button.toLowerCase() === letters[currentLetterPosition].toLowerCase()) {
-      setCurrentLetterPosition(currentLetterPosition + 1)
-      setCurrentLetter(letters[currentLetterPosition + 1])
-      setScore()
-    }
-
-    if (button.toLowerCase() !== letters[currentLetterPosition].toLowerCase())
-      handleGameOver()
-
-    if (letters.length === currentLetterPosition + 1) {
-      handleGameOver()
-    }
-  }
-
   const {
     time,
     setTimer,
@@ -53,6 +38,21 @@ function GamePage() {
       setWait("done")
     }, 2000)
   }, [])
+
+  function onKeyPress(button: any) {
+    if (button.toLowerCase() === letters[currentLetterPosition].toLowerCase()) {
+      setCurrentLetterPosition(currentLetterPosition + 1)
+      setCurrentLetter(letters[currentLetterPosition + 1])
+      setScore()
+    }
+
+    if (button.toLowerCase() !== letters[currentLetterPosition].toLowerCase())
+      handleGameOver()
+
+    if (letters.length === currentLetterPosition + 1) {
+      handleGameOver()
+    }
+  }
 
   function handleGameOver() {
     getLetters([])

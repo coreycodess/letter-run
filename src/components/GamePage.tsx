@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Keyboard, { KeyboardReactInterface } from "react-simple-keyboard"
+import Keyboard from "react-simple-keyboard"
 import "react-simple-keyboard/build/css/index.css"
 import useData from "../zustand/useData.store"
 import generateLetters from "../utils/generateLetters"

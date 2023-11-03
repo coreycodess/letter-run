@@ -50,7 +50,7 @@ function GamePage() {
     if (button.toLowerCase() !== letters[currentLetterPosition].toLowerCase())
       handleGameOver()
 
-    if (letters.length === 10) {
+    if (letters.length === currentLetterPosition + 1) {
       handleGameOver()
     }
   }

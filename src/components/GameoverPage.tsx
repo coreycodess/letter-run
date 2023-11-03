@@ -1,21 +1,10 @@
 import useData from "../zustand/useData.store"
 
 function GameOver() {
-  const {
-    getLetters,
-    setCurrentLetter,
-    setCurrentLetterPosition,
-    setTimer,
-    score,
-    selectPage,
-  } = useData()
+  const { score } = useData()
 
   function handlePlayAgain() {
-    getLetters([])
-    setCurrentLetter("")
-    setCurrentLetterPosition(0)
-    setTimer(null)
-    selectPage("")
+    window.location.reload()
   }
 
   return (

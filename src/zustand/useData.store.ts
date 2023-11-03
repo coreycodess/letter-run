@@ -42,7 +42,10 @@ const useData = create<DataT>()((set) => ({
     set((state) => ({
       currentLetterPosition: (state.currentLetterPosition = pos),
     })),
-  setScore: () => set((state) => ({ score: state.score + 1 })),
+  setScore: () =>
+    set((state) => ({
+      score: state.score === 10 ? state.score : state.score + 1,
+    })),
 }))
 
 export default useData

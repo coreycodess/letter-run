@@ -5,8 +5,6 @@ import useData from "../zustand/useData.store"
 import generateLetters from "../utils/generateLetters"
 import timer from "../utils/timer"
 
-const newLetters = generateLetters(10)
-
 function WaitComponent() {
   return (
     <div className="select-none flex justify-center items-center flex-col w-100 h-screen rounded-sm text-center">
@@ -32,7 +30,10 @@ function GamePage() {
     selectPage,
     setScore,
     score,
+    letterAmount,
   } = useData()
+
+  const newLetters = generateLetters(letterAmount)
 
   useEffect(() => {
     setTimeout(() => {
@@ -42,7 +43,7 @@ function GamePage() {
 
   function onKeyPress(button: string) {
     if (button.toLowerCase() === letters[currentLetterPosition].toLowerCase()) {
-      if (score <= 10) setScore()
+      setScore(letterAmount)
       setCurrentLetterPosition(currentLetterPosition + 1)
       setCurrentLetter(letters[currentLetterPosition + 1])
     }
@@ -55,14 +56,6 @@ function GamePage() {
     }
   }
 
-  function handleGameOver() {
-    getLetters([])
-    setCurrentLetter("")
-    setCurrentLetterPosition(0)
-    setTimer(null)
-    selectPage("GameOverPage")
-  }
-
   useEffect(() => {
     getLetters(newLetters)
     timer(selectedTime, setTimer)
@@ -72,7 +65,7 @@ function GamePage() {
     const key = e.key
 
     if (key.toLowerCase() === letters[currentLetterPosition].toLowerCase()) {
-      if (score <= 10) setScore()
+      setScore(letterAmount)
       setCurrentLetterPosition(currentLetterPosition + 1)
       setCurrentLetter(letters[currentLetterPosition + 1])
     }
@@ -97,6 +90,14 @@ function GamePage() {
   useEffect(() => {
     if (time === 0) handleGameOver()
   }, [time])
+
+  function handleGameOver() {
+    getLetters([])
+    setCurrentLetter("")
+    setCurrentLetterPosition(0)
+    setTimer(null)
+    selectPage("GameOverPage")
+  }
 
   return (
     <>

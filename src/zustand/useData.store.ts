@@ -8,13 +8,15 @@ type DataT = {
   currentLetterPosition: number
   selectedPage: string
   score: number
+  letterAmount: number
   selectTime: (time: number) => void
   getLetters: (letters: string[]) => void
   selectPage: (pageName: string) => void
   setTimer: (currentTime: number | null) => void
   setCurrentLetter: (letter: string) => void
   setCurrentLetterPosition: (pos: number) => void
-  setScore: () => void
+  setScore: (letterAmount: number) => void
+  setLetterAmount: (amount: number) => void
 }
 
 const useData = create<DataT>()((set) => ({
@@ -25,6 +27,7 @@ const useData = create<DataT>()((set) => ({
   currentLetterPosition: 0,
   selectedPage: "",
   score: 0,
+  letterAmount: 10,
   selectTime: (time) =>
     set((state) => ({ selectedTime: (state.selectedTime = time) })),
   getLetters: (newLetters) =>
@@ -42,10 +45,12 @@ const useData = create<DataT>()((set) => ({
     set((state) => ({
       currentLetterPosition: (state.currentLetterPosition = pos),
     })),
-  setScore: () =>
+  setScore: (letterAmount) =>
     set((state) => ({
-      score: state.score === 10 ? state.score : state.score + 1,
+      score: state.score === letterAmount ? state.score : state.score + 1,
     })),
+  setLetterAmount: (amount) =>
+    set((state) => ({ letterAmount: (state.letterAmount = amount) })),
 }))
 
 export default useData

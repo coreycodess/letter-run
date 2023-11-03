@@ -7,7 +7,6 @@ function GameOver() {
     setCurrentLetterPosition,
     setTimer,
     score,
-    selectPage,
   } = useData()
 
   function handlePlayAgain() {
@@ -15,7 +14,6 @@ function GameOver() {
     setCurrentLetter("")
     setCurrentLetterPosition(0)
     setTimer(null)
-    selectPage("OptionsPage")
   }
 
   return (
@@ -26,7 +24,7 @@ function GameOver() {
         className="mt-10 text-sm p-3 bg-purple-900 rounded-sm text-white"
         onClick={() => handlePlayAgain()}
       >
-        Play Again?
+        Start Again?
       </button>
     </div>
   )

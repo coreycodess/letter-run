@@ -33,9 +33,15 @@ function OptionsPage() {
         <div className="my-10 text-white">
           <button
             className="mx-5 my-2 sm:my-0 p-3 w-24 bg-purple-900 rounded-sm text-sm"
-            onClick={() => handleOption(15)}
+            onClick={() => handleOption(25)}
           >
-            15 seconds
+            25 seconds
+          </button>
+          <button
+            className="mx-5 my-2 sm:my-0 p-3 w-24 bg-purple-900 rounded-sm text-sm"
+            onClick={() => handleOption(20)}
+          >
+            20 seconds
           </button>
           <button
             className="mx-5 my-2 sm:my-0 p-3 w-24 bg-purple-900 rounded-sm text-sm"
@@ -43,17 +49,11 @@ function OptionsPage() {
           >
             10 seconds
           </button>
-          <button
-            className="mx-5 my-2 sm:my-0 p-3 w-24 bg-purple-900 rounded-sm text-sm"
-            onClick={() => handleOption(5)}
-          >
-            5 seconds
-          </button>
         </div>
       </div>
 
       {/* Letter Amount */}
-      <div className="text-center w-1/2">
+      <div className="mt-10 text-center w-1/2">
         <h1 className="text-3xl sm:text-5xl">Letter Amount</h1>
         <div className="my-10 text-white">
           <button
@@ -64,13 +64,13 @@ function OptionsPage() {
           </button>
           <button
             className="mx-5 my-2 sm:my-0 p-3 w-24 bg-purple-900 rounded-sm text-sm"
-            onClick={() => handleOption(20)}
+            onClick={() => handleLetterAmount(20)}
           >
             20 Letters
           </button>
           <button
             className="mx-5 my-2 sm:my-0 p-3 w-24 bg-purple-900 rounded-sm text-sm"
-            onClick={() => handleOption(25)}
+            onClick={() => handleLetterAmount(25)}
           >
             25 Letters
           </button>
